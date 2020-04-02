@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Story</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.css">
+
+	<style>
+	html, body, main {
+		position: relative;
+		height: 100%;
+		margin: 0;
+	}
+
+
+	.swiper-container {
+/*
+		width: 600px;
+		height: 300px;
+*/
+
+		width: 100%;
+		height: 100%;
+
+	}
+
+	.swiper-slide {
+		background-position: center;
+		background-size: cover;
+	}
+
+
+	.toggle-button {
+		position: fixed;
+		z-index: 10;
+	}
+	</style>
+</head>
+
+
+<body>
+
+
+<nav id="menu">
+	<h2>Menu 1</h2>
+	<h2>Menu 2</h2>
+</nav>
+
+<main id="panel">
+	<button class="toggle-button">☰</button>
+
+	<div class="swiper-container" data-slideout-ignore>
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper">
+			<!-- Slides -->
+			<div class="swiper-slide" style="background-image:url(images/slide01.png)"></div>
+			<div class="swiper-slide" style="background-image:url(images/slide02.png)"></div>
+			<div class="swiper-slide" style="background-image:url(images/slide03.png)"></div>
+			<div class="swiper-slide" style="background-image:url(images/slide04.png)"></div>
+			<div class="swiper-slide" style="background-image:url(images/slide05.png)"></div>
+			<div class="swiper-slide" style="background-image:url(images/slide06.png)"></div>
+			<div class="swiper-slide" style="background-image:url(images/slide07.png)"></div>
+		</div>
+
+		<!-- If we need pagination -->
+		<div class="swiper-pagination"></div>
+
+		<!-- If we need navigation buttons -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+
+		<!-- If we need scrollbar -->
+		<div class="swiper-scrollbar"></div>
+	</div>
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+<script>
+	var slideout = new Slideout({
+		'panel': document.getElementById('panel'),
+		'menu': document.getElementById('menu'),
+		'padding': 256,
+		'tolerance': 70
+	});
+
+	// Toggle button
+	document.querySelector('.toggle-button').addEventListener('click', function() {
+		slideout.toggle();
+	});
+</script>
+
+
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<script>
+	var mySwiper = new Swiper ('.swiper-container', {
+	// Optional parameters
+
+	// If we need pagination
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true
+	},
+
+	// Navigation arrows
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev'
+	},
+
+	// And if we need scrollbar
+	scrollbar: {
+		el: '.swiper-scrollbar'
+	},
+	keyboard: {
+		enabled: true,
+		onlyInViewport: false
+	},
+	mousewheel: true
+	})
+</script>
+</body>
+</html>
