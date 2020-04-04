@@ -1,43 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Story</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<title>Story</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.css">
+
 
 	<style>
-	html, body, main {
-		position: relative;
-		height: 100%;
-		margin: 0;
-	}
+		html,
+		body,
+		main {
+			position: relative;
+			height: 100%;
+			margin: 0;
+		}
 
-
-	.swiper-container {
-/*
+		.swiper-container {
+			/*
 		width: 600px;
 		height: 300px;
 */
 
-		width: 100%;
-		height: 100%;
+			width: 100%;
+			height: 100%;
 
-	}
+		}
 
-	.swiper-slide {
-		background-position: center;
-		background-size: cover;
-	}
+		.swiper-slide {
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
 
 
-	.toggle-button {
-		position: fixed;
-		z-index: 10;
-	}
+		.toggle-button {
+			position: fixed;
+			z-index: 10;
+		}
+
+
+		#menu a {
+			font-family: Gill Sans, sans-serif;
+			text-decoration: none;
+			display: block;
+			padding: 6pt;
+			background-color: #637d64;
+			color: var(--swiper-theme-color);
+		}
+
+		#menu a:hover {
+			background-color: yellowgreen;
+		}
+
+		:root {
+			--swiper-theme-color: yellow;
+		}
+	</style>
+
+
+	<!-- slidout style https://slideout.js.org -->
+	<style>
+		.slideout-menu {
+			position: fixed;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			z-index: 0;
+			width: 256px;
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			display: none;
+		}
+
+		.slideout-panel {
+			position: relative;
+			z-index: 1;
+			will-change: transform;
+		}
+
+		.slideout-open,
+		.slideout-open body,
+		.slideout-open .slideout-panel {
+			overflow: hidden;
+		}
+
+		.slideout-open .slideout-menu {
+			display: block;
+		}
 	</style>
 </head>
 
@@ -45,44 +98,48 @@
 <body>
 
 
-<nav id="menu">
-	<h2>Menu 1</h2>
-	<h2>Menu 2</h2>
-</nav>
+	<nav id="menu">
+		<a href=# onclick="mySwiper.slideTo(0, 0); slideout.close()">Начало</a>
+		<a href=# onclick="mySwiper.slideTo(1, 0); slideout.close()">Карта</a>
+		<a href=# onclick="mySwiper.slideTo(2, 0); slideout.close()">Герои</a>
+		<a href=# onclick="mySwiper.slideTo(3, 1000); slideout.close()">Страница 1</a>
+		<a href=# onclick="mySwiper.slideTo(4, 1000); slideout.close()">Страница 2</a>
+		<a href=# onclick="mySwiper.slideTo(5, 1000); slideout.close()">Страница 3</a>
+	</nav>
 
-<main id="panel">
-	<button class="toggle-button">☰</button>
+	<main id="panel">
+		<button class="toggle-button">☰</button>
 
-	<div class="swiper-container" data-slideout-ignore>
-		<!-- Additional required wrapper -->
-		<div class="swiper-wrapper">
-			<!-- Slides -->
-			<div class="swiper-slide" style="background-image:url(images/slide01.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide02.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide03.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide04.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide05.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide06.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide07.png)"></div>
+		<div class="swiper-container" data-slideout-ignore>
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide01.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/map.jpg)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/heroes.jpg)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide04.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide05.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide06.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide07.png)"></div>
+			</div>
+
+			<!-- If we need pagination -->
+			<div class="swiper-pagination"></div>
+
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+			<!-- If we need scrollbar -->
+			<div class="swiper-scrollbar"></div>
 		</div>
-
-		<!-- If we need pagination -->
-		<div class="swiper-pagination"></div>
-
-		<!-- If we need navigation buttons -->
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
-
-		<!-- If we need scrollbar -->
-		<div class="swiper-scrollbar"></div>
-	</div>
-</main>
+	</main>
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
-<script>
-	var slideout = new Slideout({
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+	<script>
+		var slideout = new Slideout({
 		'panel': document.getElementById('panel'),
 		'menu': document.getElementById('menu'),
 		'padding': 256,
@@ -93,12 +150,14 @@
 	document.querySelector('.toggle-button').addEventListener('click', function() {
 		slideout.toggle();
 	});
-</script>
+	</script>
 
 
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-	var mySwiper = new Swiper ('.swiper-container', {
+
+
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script>
+		var mySwiper = new Swiper ('.swiper-container', {
 	// Optional parameters
 
 	// If we need pagination
@@ -122,7 +181,12 @@
 		onlyInViewport: false
 	},
 	mousewheel: true
-	})
-</script>
+	});
+
+
+
+  window.resizeTo(1280 + window.outerWidth - window.innerWidth, 800 + window.outerHeight - window.innerHeight);
+	</script>
 </body>
+
 </html>
