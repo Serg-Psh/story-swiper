@@ -1,99 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Story</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<title>Story</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
 
 	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 
 
 	<style>
-	html, body, main {
-		position: relative;
-		height: 100%;
-		margin: 0;
-	}
+		html,
+		body,
+		main {
+			position: relative;
+			width: 100vw;
+			height: calc(100vw/1.6);
+			margin: 0;
+		}
+
+		.swiper-container {
+/*			width: 100vw;
+*/			height: 100%;
+		}
+
+		.swiper-slide {
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
 
 
-	.swiper-container {
-/*
-		width: 600px;
-		height: 300px;
-*/
 
-		width: 100%;
-		height: 100%;
 
-	}
-
-	.swiper-slide {
-		background-position: center;
-		background-size: cover;
-	}
-
+		:root {
+			--swiper-theme-color: yellow;
+		}
+  
 	</style>
+
 </head>
 
 
 <body>
 
 
-<nav id="menu">
-	<h2>Menu 1</h2>
-	<h2>Menu 2</h2>
-</nav>
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox">
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">  
+		    <li><a href=# onclick="mySwiper.slideTo(0, 0); toggleMenu();">Начало</a></li>
+		    <li><a href=# onclick="mySwiper.slideTo(1, 0); toggleMenu();">Карта</a></li>
+		    <li><a href=# onclick="mySwiper.slideTo(2, 0); toggleMenu();">Герои</a></li>
+		    <li><a href=# onclick="mySwiper.slideTo(3, 1000); toggleMenu();">Страница 1</a></li>
+		    <li><a href=# onclick="mySwiper.slideTo(4, 1000); toggleMenu();">Страница 2</a></li>
+		    <li><a href=# onclick="mySwiper.slideTo(5, 1000); toggleMenu();">Страница 3</a></li>
+      </ul>
+    </div>
+	</nav>
 
-<main id="panel">
-	<button class="toggle-button">☰</button>
+	<main id="panel">
+		<div class="swiper-container" data-slideout-ignore>
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<!-- Slides -->
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide01.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/map.jpg)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/heroes.jpg)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide04.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide05.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide06.png)"></div>
+				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide07.png)"></div>
+			</div>
 
-	<div class="swiper-container" data-slideout-ignore>
-		<!-- Additional required wrapper -->
-		<div class="swiper-wrapper">
-			<!-- Slides -->
-			<div class="swiper-slide" style="background-image:url(images/slide01.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide02.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide03.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide04.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide05.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide06.png)"></div>
-			<div class="swiper-slide" style="background-image:url(images/slide07.png)"></div>
+			<!-- If we need pagination -->
+			<div class="swiper-pagination"></div>
+
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+			<!-- If we need scrollbar -->
+			<div class="swiper-scrollbar"></div>
 		</div>
-
-		<!-- If we need pagination -->
-		<div class="swiper-pagination"></div>
-
-		<!-- If we need navigation buttons -->
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
-
-		<!-- If we need scrollbar -->
-		<div class="swiper-scrollbar"></div>
-	</div>
-</main>
+	</main>
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
-<script>
-	var slideout = new Slideout({
-		'panel': document.getElementById('panel'),
-		'menu': document.getElementById('menu'),
-		'padding': 256,
-		'tolerance': 70
-	});
 
-	// Toggle button
-	document.querySelector('.toggle-button').addEventListener('click', function() {
-		slideout.toggle();
-	});
-</script>
-
-
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-<script>
-	var mySwiper = new Swiper ('.swiper-container', {
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script>
+		var mySwiper = new Swiper ('.swiper-container', {
 	// Optional parameters
 
 	// If we need pagination
@@ -117,7 +117,16 @@
 		onlyInViewport: false
 	},
 	mousewheel: true
-	})
-</script>
+	});
+
+
+
+  function toggleMenu() {
+    with (document.getElementById("menuToggle").firstElementChild) checked = !checked;
+  }
+
+  window.resizeTo(1280 + window.outerWidth - window.innerWidth, 800 + window.outerHeight - window.innerHeight);
+	</script>
 </body>
+
 </html>
