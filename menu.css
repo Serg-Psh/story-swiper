@@ -1,0 +1,78 @@
+/* Veiko codepen */
+
+/*
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*/
+
+menu {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  user-select: none;
+  /* from * (all) */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* my own */
+  z-index: 10;
+}
+menu li {
+  line-height: 2.75;
+  list-style: none;
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+
+  font-family: Arial, Verdana, sans-serif;
+}
+menu a {
+  color: currentColor;
+  display: block;
+  text-decoration: none;
+}
+
+menu a:hover {
+  background-color: yellowgreen;
+}
+
+menu input {
+  display: none;
+}
+menu input:checked ~ * {
+  background-color: yellow;
+}
+menu input:checked + label:before {
+  background-size: 1.5em 0.25em, 0.25em 1.5em;
+  background-position: center, center;
+  transform: rotate(-135deg);
+}
+menu input:checked ~ li {
+  max-height: 2.75em;
+  max-width: 10em;
+  padding: 0 2em 0 1em;
+  transition: max-height 200ms, max-width 400ms;
+}
+menu label {
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  text-align: right;
+/*  background-color: red;*/
+}
+menu label:before {
+
+  background-image: linear-gradient(to top, orange, orange), linear-gradient(to top, orange, orange), linear-gradient(to top, orange, orange);
+  background-position: left 50% top 30%, left 50% bottom 50%, left 50% bottom 30%;
+  background-repeat: no-repeat;
+  background-size: 1.5em 0.25em, 1.5em 0.25em, 1.5em 0.25em;
+  content: "";
+  display: inline-block;
+  height: 2.75em;
+  transition: transform 300ms, background-position 200ms;
+  vertical-align: top;
+  width: 2.75em;
+}
