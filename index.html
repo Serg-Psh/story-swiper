@@ -11,8 +11,7 @@
 
 	<style>
 		html,
-		body,
-		main {
+		body {
 			position: relative;
 			width: 100vw;
 			height: calc(100vw/1.6);
@@ -35,6 +34,8 @@
 
 		:root {
 			--swiper-theme-color: yellow;
+      --dialog-background-color: #e7c17a;
+      --dialog-color: #2b142b;
 		}
 
     #heroes {
@@ -50,8 +51,8 @@
 
 
     .story-text {
-      background-color: #e7c17a;
-      color: #2b142b;
+      background-color: var(--dialog-background-color);
+      color: var(--dialog-color);
       width: 30vw;
       padding: 20px;
 
@@ -91,69 +92,71 @@
 <body>
 
 
-  <menu>
-    <input id="menuToggle" type="checkbox"/>
-    <label for="menuToggle"></label>
-    <li><a href=# onclick="mySwiper.slideTo(0, 0); toggleMenu();">Начало</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(1, 0); toggleMenu();">Карта</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(2, 0); toggleMenu();">Герои</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(3, 1000); toggleMenu();">Страница 1</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(4, 1000); toggleMenu();">Страница 2</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(5, 1000); toggleMenu();">Страница 3</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(6, 1000); toggleMenu();">Страница 4</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(7, 1000); toggleMenu();">Страница 5</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(8, 1000); toggleMenu();">Страница 6</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(9, 1000); toggleMenu();">Страница 7</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(10, 1000); toggleMenu();">Страница 8</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(11, 1000); toggleMenu();">Страница 9</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(12, 1000); toggleMenu();">Страница 10</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(13, 1000); toggleMenu();">Страница 11</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(14, 1000); toggleMenu();">Страница 12</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(15, 1000); toggleMenu();">Страница 13</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(16, 1000); toggleMenu();">Страница 14</a></li>
-		<li><a href=# onclick="mySwiper.slideTo(17, 1000); toggleMenu();">Страница 15</a></li>
-  </menu>
-
-	<main>
-		<div class="swiper-container">
-			<!-- Additional required wrapper -->
-			<div class="swiper-wrapper">
-				<!-- Slides -->
-				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide01.png)"></div>
-				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/map.jpg)"></div>
+	<div class="swiper-container">
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper">
+			<!-- Slides -->
+			<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide01.png)"></div>
+			<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/map.jpg)"></div>
 <!--				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/heroes.jpg)"></div> -->
-				<div class="swiper-slide" style="background-color: #637d64">
-				  <div id="heroes">
-           <a href="#" onclick="Heroes=1; alert('Heroes pair choosed: ' + Heroes)"><img src="https://termopuls.ru/i/actors1.png"></a>
-           <a href="#" onclick="Heroes=2; alert('Heroes pair choosed: ' + Heroes)"><img src="https://termopuls.ru/i/actors2.png"></a>
-           <a href="#" onclick="Heroes=3; alert('Heroes pair choosed: ' + Heroes)"><img src="https://termopuls.ru/i/actors3.png"></a>
-				  </div>
-        </div>
-				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide04.jpg)">
-          <div class="story-text">
+			<div class="swiper-slide" style="background-color: #637d64">
+			  <div id="heroes">
+          <a href="#" onclick="Heroes=1; alert('Heroes pair choosed: ' + Heroes)"><img src="https://termopuls.ru/i/actors1.png"></a>
+          <a href="#" onclick="Heroes=2; alert('Heroes pair choosed: ' + Heroes)"><img src="https://termopuls.ru/i/actors2.png"></a>
+          <a href="#" onclick="Heroes=3; alert('Heroes pair choosed: ' + Heroes)"><img src="https://termopuls.ru/i/actors3.png"></a>
+			  </div>
+      </div>
+			<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide04.jpg)">
+        <div class="story-text">
           Утром дровосек одел детей потеплее и повёл в лес. По дорогое в лес Гензель набрал камушков, спрятал их в карманы. А как только вошли они в лес, Гензель стал время от времени бросать за собой камушки, чтобы по ним найти дорогу домой.
-          </div>
-
-          <div class="test">
-            Утром дровосек одел детей потеплее и повёл в лес. По дорогое в лес Гензель набрал камушков, спрятал их в карманы. А как только вошли они в лес, Гензель стал время от времени бросать за собой камушки, чтобы по ним найти дорогу домой.
-          </div>
         </div>
-				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide05.png)"></div>
-				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide06.png)"></div>
-				<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide07.png)"></div>
-			</div>
 
-			<!-- If we need pagination -->
-			<div class="swiper-pagination"></div>
-
-			<!-- If we need navigation buttons -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
-
-			<!-- If we need scrollbar -->
-			<div class="swiper-scrollbar"></div>
+        <div class="test">
+          Утром дровосек одел детей потеплее и повёл в лес. По дорогое в лес Гензель набрал камушков, спрятал их в карманы. А как только вошли они в лес, Гензель стал время от времени бросать за собой камушки, чтобы по ним найти дорогу домой.
+        </div>
+      </div>
+			<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide05.png)"></div>
+			<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide06.png)"></div>
+			<div class="swiper-slide" style="background-image:url(https://termopuls.ru/i/slide07.png)"></div>
 		</div>
-	</main>
+
+		<!-- If we need pagination -->
+		<div class="swiper-pagination"></div>
+
+		<!-- If we need navigation buttons -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+
+		<!-- If we need scrollbar -->
+		<div class="swiper-scrollbar"></div>
+
+
+
+
+    <input id="menuToggle" type="checkbox"/>
+    <label for="menuToggle" class="btn-menu"></label>
+    <menu>
+      <li><a href=# onclick="mySwiper.slideTo(0, 0); toggleMenu();">Начало</a></li>
+	  	<li><a href=# onclick="mySwiper.slideTo(1, 0); toggleMenu();">Карта</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(2, 0); toggleMenu();">Герои</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(3, 1000); toggleMenu();">Страница 1</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(4, 1000); toggleMenu();">Страница 2</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(5, 1000); toggleMenu();">Страница 3</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(6, 1000); toggleMenu();">Страница 4</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(7, 1000); toggleMenu();">Страница 5</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(8, 1000); toggleMenu();">Страница 6</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(9, 1000); toggleMenu();">Страница 7</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(10, 1000); toggleMenu();">Страница 8</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(11, 1000); toggleMenu();">Страница 9</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(12, 1000); toggleMenu();">Страница 10</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(13, 1000); toggleMenu();">Страница 11</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(14, 1000); toggleMenu();">Страница 12</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(15, 1000); toggleMenu();">Страница 13</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(16, 1000); toggleMenu();">Страница 14</a></li>
+		  <li><a href=# onclick="mySwiper.slideTo(17, 1000); toggleMenu();">Страница 15</a></li>
+    </menu>
+
+	</div>
 
 
 
